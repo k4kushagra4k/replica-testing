@@ -9,12 +9,11 @@ import Replica from "./Components/Replica/Replica.jsx";
 import Auth from "./Components/Auth/Auth.jsx";
 import Chatbot from "./Components/Chatbot/Chatbot.jsx";
 import ProtectedRoute from "./Components/ProtectedRoute.jsx";
-
+import axios from "axios";
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.withCredentials = true;
 const App = () => {
-  const apiUrl = process.env.REACT_APP_API_URL; // Access the API URL here
-
-  console.log("API URL: ", apiUrl); // Just for checking if it's working
-
+ 
   return (
     <Router>
       <Navbar />

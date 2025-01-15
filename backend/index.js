@@ -6,7 +6,12 @@ const cors = require("cors");
 const replicaRoutes = require("./routes/Replica");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:3001",
+  })
+);
 // Middleware
 app.use(bodyParser.json());
 

@@ -24,7 +24,7 @@ const Replica = () => {
 
   const fetchReplicas = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/replicas");
+      const response = await axios.get("/api/replicas");
       if (response.data && response.status === 200) {
         setReplicas(response.data || []);
         setFilteredReplicas(response.data || []); // Initialize filtered replicas
@@ -44,7 +44,7 @@ const Replica = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/replicas/${id}`
+        `/api/replicas/${id}`
       );
       if (response.status === 200) {
         alert("Replica deleted successfully!");
