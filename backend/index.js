@@ -6,6 +6,12 @@ const cors = require("cors");
 const replicaRoutes = require("./routes/Replica");
 
 const app = express();
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Handle requests by serving index.html for all routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+});
 app.use(
   cors({
     credentials: true,
